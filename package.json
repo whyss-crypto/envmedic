@@ -1,0 +1,63 @@
+{
+  "name": "envmedic",
+  "version": "0.1.0",
+  "description": "Diagnose broken dev environments, fix the safe stuff, ship the project.",
+  "type": "module",
+  "bin": {
+    "envmedic": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "doctor": "tsx src/cli.ts doctor",
+    "fix": "tsx src/cli.ts fix",
+    "bootstrap": "tsx src/cli.ts bootstrap",
+    "snapshot": "tsx src/cli.ts snapshot",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "developer-tools",
+    "environment",
+    "debugging",
+    "nodejs",
+    "development",
+    "onboarding",
+    "doctor"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyss-crypto/envmedic.git"
+  },
+  "homepage": "https://github.com/whyss-crypto/envmedic#readme",
+  "bugs": {
+    "url": "https://github.com/whyss-crypto/envmedic/issues"
+  },
+  "dependencies": {
+    "chalk": "^6.0.1",
+    "commander": "^15.0.0",
+    "detect-port": "^2.1.0",
+    "dotenv": "^18.0.5",
+    "execa": "^8.0.1",
+    "ora": "^9.4.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
